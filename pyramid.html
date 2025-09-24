@@ -4,7 +4,32 @@
   <meta charset="utf-8">
   <title>UPP Pyramid — UPE Conjecture Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{
+      --bg:#0b132b; --fg:#e6f1ff; --card:#1c2541;
+      --green:#3ddc97; --yellow:#ffd166; --blue:#4ea8de; --gold:#ffd54f;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.5 system-ui;background:var(--bg);color:var(--fg)}
+    .top{padding:28px 16px;text-align:center}
+    .top h1{margin:0 0 8px;font-size:28px}
+    .tag{opacity:.9}
+    .container{max-width:980px;margin:0 auto;padding:16px}
+    .pyramid{display:grid;gap:8px;margin:12px 0}
+    .row{display:grid;gap:8px}
+    .tile{padding:12px;border-radius:12px;text-align:center;cursor:pointer;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+    .tile.upp{background:linear-gradient(90deg,#3ddc97,#32b87f)}
+    .tile.green{background:linear-gradient(90deg,#2ecc71,#27ae60)}
+    .tile.yellow{background:linear-gradient(90deg,#ffd166,#f6ae2d);color:#222}
+    .tile.blue{background:linear-gradient(90deg,#4ea8de,#1976d2)}
+    .tile.gold{background:linear-gradient(90deg,#ffd54f,#ffb703);color:#222}
+    .info{margin-top:12px;padding:12px;border-left:4px solid #4ea8de;
+      background:rgba(78,168,222,.12);border-radius:10px;min-height:64px}
+    .cta{margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;
+      background:#8a5cf6;color:#fff;text-decoration:none}
+  </style>
 </head>
 <body>
 <header class="top">
@@ -14,13 +39,60 @@
 
 <main class="container">
   <div id="pyramid" class="pyramid"></div>
-  <div id="info" class="info"></div>
+  <div id="info" class="info">Click a tile to see a short note.</div>
   <div class="cta"><a class="btn" href="index.html">Back Home</a></div>
 </main>
 
-<script src="app.js"></script>
 <script>
-  renderPyramid('pyramid','info');
+  const data = [
+    [
+      { label: "Riemann (Apex)", cls: "gold",
+        tip: "Oscillatory correspondence: normalized small-offset fluctuations align with imaginary parts γ of ζ(s) zeros." }
+    ],
+    [
+      { label: "HL / k-tuples / PNT", cls: "blue",
+        tip: "Density frameworks: UPP provides the existence floor; HL gives abundance; PNT gives the scale π(x) ~ x/log x." }
+    ],
+    [
+      { label: "Andrica", cls: "yellow",
+        tip: "Sustained small gaps suppress large jumps of √p: heuristic enforcement of √p_{k+1} − √p_k < 1." },
+      { label: "Polignac / Twins", cls: "green",
+        tip: "Non-vanishing mass for each small t ⇒ all even gaps recur; t=1 yields twins (Δ=2) infinitely often." }
+    ],
+    [
+      { label: "Legendre / Oppermann", cls: "yellow",
+        tip: "Two-sided coverage near squares; deserts near n² excluded by UPP small-offset density." },
+      { label: "Bertrand", cls: "green",
+        tip: "From constructive Goldbach pair, q = x + t > x gives a prime in (x, 2x)." }
+    ],
+    [
+      { label: "Goldbach (constructive)", cls: "green",
+        tip: "Minimal symmetric pair (p, q) around x = E/2 with t on the Cramér scale." }
+    ],
+    [
+      { label: "UPP — Unified Prime Principle", cls: "upp",
+        tip: "Foundational law: f(E) = t/(log E)^2 stabilizes with non-vanishing small-t mass; provides mechanism and scale." }
+    ]
+  ];
+
+  function tile(node){
+    const d = document.createElement('div');
+    d.className = 'tile ' + node.cls;
+    d.textContent = node.label;
+    d.onclick = () => {
+      document.getElementById('info').innerHTML = `<b>${node.label}</b><br>${node.tip}`;
+    };
+    return d;
+  }
+
+  const host = document.getElementById('pyramid');
+  data.forEach(row => {
+    const r = document.createElement('div');
+    r.className = 'row';
+    r.style.gridTemplateColumns = `repeat(${row.length}, 1fr)`;
+    row.forEach(n => r.appendChild(tile(n)));
+    host.appendChild(r);
+  });
 </script>
 </body>
 </html>
