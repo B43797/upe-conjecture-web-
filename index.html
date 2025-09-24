@@ -5,7 +5,27 @@
   <title>UPE – Conjecture Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="How the Unified Prime Principle (UPP) links Goldbach, Cramér, Polignac, Bertrand, Legendre, Andrica, Hardy–Littlewood, k-tuples, and Riemann.">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{
+      --bg:#0b132b; --fg:#e6f1ff; --card:#1c2541;
+      --green:#3ddc97; --yellow:#ffd166; --blue:#4ea8de;
+    }
+    *{box-sizing:border-box} 
+    body{margin:0;font:16px/1.5 system-ui;background:var(--bg);color:var(--fg)}
+    .top{padding:28px 16px;text-align:center}
+    .top h1{margin:0 0 8px;font-size:28px}
+    .tag{opacity:.9}
+    .container{max-width:980px;margin:0 auto;padding:16px}
+    .card{background:var(--card);padding:16px;border-radius:12px;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);margin-bottom:16px}
+    .grid.two{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;
+      background:#8a5cf6;color:#fff;text-decoration:none;margin:6px 8px 0 0}
+    .btn.primary{background:#2a9d8f}
+    .link{color:#a0c4ff;text-decoration:underline}
+    .foot{padding:24px 16px;text-align:center;opacity:.8}
+    @media (max-width:760px){.grid.two{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <header class="top">
