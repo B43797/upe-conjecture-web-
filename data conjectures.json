@@ -1,0 +1,45 @@
+{
+  "pyramid": [
+    [
+      { "label": "Riemann (Apex)", "cls": "gold",
+        "tip": "Oscillatory correspondence: normalized small-offset fluctuations align with imaginary parts γ of ζ(s) zeros." }
+    ],
+    [
+      { "label": "HL / k-tuples / PNT", "cls": "blue",
+        "tip": "Density frameworks: UPP provides the existence floor; HL gives abundance; PNT provides the scale π(x) ~ x/log x." }
+    ],
+    [
+      { "label": "Andrica", "cls": "yellow",
+        "tip": "Sustained small gaps suppress large jumps of √p: heuristic enforcement of √p_{k+1} − √p_k < 1." },
+      { "label": "Polignac / Twins", "cls": "green",
+        "tip": "Non-vanishing mass for each small t ⇒ all even gaps recur; t=1 yields twins (Δ=2) infinitely often." }
+    ],
+    [
+      { "label": "Legendre / Oppermann", "cls": "yellow",
+        "tip": "Two-sided coverage near squares; deserts near n² excluded by UPP small-offset density." },
+      { "label": "Bertrand", "cls": "green",
+        "tip": "From constructive Goldbach pair, q = x + t > x gives a prime in (x, 2x)." }
+    ],
+    [
+      { "label": "Goldbach (constructive)", "cls": "green",
+        "tip": "Minimal symmetric pair (p, q) around x = E/2 with t on the Cramér scale." }
+    ],
+    [
+      { "label": "UPP — Unified Prime Principle", "cls": "upp",
+        "tip": "Foundational law: f(E) = t/(log E)^2 stabilizes with non-vanishing small-t mass; provides mechanism and scale." }
+    ]
+  ],
+  "ladder": [
+    { "n": 0, "title": "UPP", "note": "Foundational small-t law on the Cramér scale." },
+    { "n": 1, "title": "Cramér-scale bound", "note": "t = O((log E)^2)." },
+    { "n": 2, "title": "Goldbach (constructive)", "note": "Exists (p,q) = (x−t, x+t) for all even E ≥ 4." },
+    { "n": 3, "title": "Bertrand", "note": "Prime in (x,2x) via q = x + t > x." },
+    { "n": 4, "title": "Legendre / Oppermann", "note": "Coverage near squares; no deserts." },
+    { "n": 5, "title": "Polignac", "note": "All even gaps 2k recur (non-vanishing mass for each small t)." },
+    { "n": 6, "title": "Twin Primes", "note": "Special case k=1 (Δ=2) recur." },
+    { "n": 7, "title": "Andrica", "note": "Heuristic suppression of √p jumps (< 1) via small gaps." },
+    { "n": 8, "title": "HL / k-tuples", "note": "Existence floor (UPP) vs abundance (HL); compatible habitat." },
+    { "n": 9, "title": "PNT", "note": "Scale coherence π(x) ~ x/log x under f(E) stabilization." },
+    { "n": 10, "title": "Riemann", "note": "Spectral correspondence at the apex." }
+  ]
+}
